@@ -100,7 +100,7 @@ func NewClient(caDirURL string, user User, keyBits int, optPort string) (*Client
 	// spec to this map. Otherwise they won`t be found.
 	solvers := make(map[string]solver)
 	solvers["http-01"] = &httpChallenge{jws: jws, optPort: optPort}
-	solvers["tls-sni-01"] = &tlsSNIChallenge{jws: jws, optPort: optPort}
+//	solvers["tls-sni-01"] = &tlsSNIChallenge{jws: jws, optPort: optPort}
 
 	return &Client{directory: dir, user: user, jws: jws, keyBits: keyBits, solvers: solvers}, nil
 }
