@@ -100,14 +100,14 @@ func (s *httpChallenge) startHTTPServer(domain string, token string, keyAuth str
 		port = ":" + s.optPort
 	}
 
-	listener, err := net.Listen("tcp", domain+port)
-	if err != nil {
+//	listener, err := net.Listen("tcp", domain+port)
+//	if err != nil {
 		// if the domain:port bind failed, fall back to :port bind and try that instead.
-		listener, err = net.Listen("tcp", port)
+		listener, err := net.Listen("tcp", port)
 		if err != nil {
 			s.end <- err
 		}
-	}
+//	}
 	// Signal successfull start
 	s.start <- listener
 
